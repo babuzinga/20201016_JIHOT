@@ -14,6 +14,7 @@ namespace App\Controllers;
  * @package CodeIgniter
  */
 
+use App\Models\ProfileModel;
 use CodeIgniter\Controller;
 
 class BaseController extends Controller
@@ -28,6 +29,8 @@ class BaseController extends Controller
 	 */
 	protected $helpers = ['main'];
 
+	protected $profileModel;
+
 	/**
 	 * Constructor.
 	 */
@@ -41,6 +44,8 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// E.g.:
 		// $this->session = \Config\Services::session();
+
+    $this->profileModel = new ProfileModel();
 	}
 
 	public function view(string $name, array $data = [])

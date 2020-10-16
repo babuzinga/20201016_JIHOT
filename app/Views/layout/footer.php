@@ -1,11 +1,5 @@
-<!-- FOOTER: DEBUG INFO + COPYRIGHTS -->
 <footer>
-  footer
+  <?= date('Y-m-d'); ?>
 </footer>
-
-<!-- SCRIPTS -->
-<script>
-
-</script>
 </body>
 </html>
