@@ -4,9 +4,9 @@ class Home extends BaseController
 {
 	public function index()
 	{
-		return view('welcome_message');
+	  $data = [
+	    'page_title' => 'Main',
+    ];
+		return $this->view('home/index', $data);
 	}
-
-	//--------------------------------------------------------------------
-
 }
