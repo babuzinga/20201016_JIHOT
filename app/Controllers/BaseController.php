@@ -16,7 +16,7 @@ namespace App\Controllers;
 
 use App\Models\BaseModel;
 use App\Models\AccountModel;
-use App\Models\ContentModel;
+use App\Models\PostModel;
 use CodeIgniter\Controller;
 
 class BaseController extends Controller
@@ -33,7 +33,7 @@ class BaseController extends Controller
 
 	protected $baseModel;
 	protected $accountModel;
-	protected $contentModel;
+	protected $postModel;
 
 	/**
 	 * Constructor.
@@ -51,7 +51,7 @@ class BaseController extends Controller
 
     $this->baseModel = new BaseModel();
     $this->accountModel = new AccountModel();
-    $this->contentModel = new ContentModel();
+    $this->postModel = new PostModel();
 	}
 
 	public function view(string $name, array $data = [])

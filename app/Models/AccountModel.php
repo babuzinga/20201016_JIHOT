@@ -36,9 +36,9 @@ class AccountModel extends BaseModel
 
     // Добавление информации по количеству постов стоящих на модерации
     if (!empty($result)) {
-      $contentModel = new ContentModel();
+      $contentModel = new PostModel();
       foreach ($result as $key => $item) {
-        $result[$key]['in_mod'] = $contentModel->getCountNewContents($item['uuid']);
+        $result[$key]['in_mod'] = $contentModel->getCountNewPosts($item['uuid']);
       }
     }
 

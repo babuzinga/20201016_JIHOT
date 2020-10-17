@@ -36,8 +36,8 @@ $routes->addPlaceholder('uuid', '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}
 $routes->add('manage', 'Manage::Index');
 $routes->add('manage/add-account', 'Manage::AddAccount');
 $routes->post('manage/save-account', 'Manage::SaveAccount');
-$routes->add('manage/get-content', 'Manage::GetContent');
-$routes->add('manage/select-content', 'Manage::SelectContent');
+$routes->add('manage/get-posts', 'Manage::GetPosts');
+$routes->add('manage/select-posts', 'Manage::SelectPosts');
 
 /**
  * --------------------------------------------------------------------

@@ -50,7 +50,7 @@ class Manage extends BaseController
    * Получение постов по всем акканутам
    * @return string
    */
-  public function GetContent()
+  public function GetPosts()
   {
     $accounts = $this->accountModel->findAllActive();
 
@@ -62,7 +62,7 @@ class Manage extends BaseController
         if (!empty($posts)) {
           foreach ($posts as $post) {
             // Если контент с таким идентификатором уже числится в БД, пропускаем его
-            if ($this->contentModel->isStockContent($post['pid'], $account['nid'])) continue;
+            if ($this->postModel->isStockPost($post['pid'], $account['nid'])) continue;
 
             $data = [
               'uuid' => gen_uuid(),
@@ -76,12 +76,12 @@ class Manage extends BaseController
               'likes' => $post['likes'],
             ];
 
-            $this->contentModel->insert($data);
+            $this->postModel->insert($data);
             $accounts[$id]['new']++;
 
             foreach ($post['medias'] as $item) {
-              $item['uuid_content'] = $data['uuid'];
-              $this->contentModel->insertMediaTemp($item);
+              $item['uuid_post'] = $data['uuid'];
+              $this->postModel->insertMediaTemp($item);
             }
           }
         }
@@ -94,21 +94,21 @@ class Manage extends BaseController
       'accounts' => $accounts,
     ];
 
-    return $this->view('manage/get-content', $data);
+    return $this->view('manage/get-posts', $data);
   }
 
   /**
    * Вывод постов на модерацию
    * @return string
    */
-  public function SelectContent()
+  public function SelectPosts()
   {
-    $posts = $this->contentModel->findAllModeration();
+    $posts = $this->postModel->findAllModeration();
 
     $data = [
       'posts' => $posts,
     ];
 
-    return $this->view('manage/select-content', $data);
+    return $this->view('manage/select-posts', $data);
   }
 }

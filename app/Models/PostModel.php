@@ -2,9 +2,9 @@
 
 use \App\Models\BaseModel;
 
-class ContentModel extends BaseModel
+class PostModel extends BaseModel
 {
-  protected $table      = 'contents';
+  protected $table      = 'posts';
   protected $primaryKey = 'uuid';
 
   protected $returnType     = 'array';
@@ -26,7 +26,7 @@ class ContentModel extends BaseModel
    * @param $nid
    * @return mixed
    */
-  public function isStockContent($pid, $nid)
+  public function isStockPost($pid, $nid)
   {
     if (empty($pid) || empty($nid)) return false;
 
@@ -57,7 +57,7 @@ class ContentModel extends BaseModel
   {
     $result = [];
     if (!empty($uuid))
-      $result = $this->db->table('medias_tmp')->where('uuid_content', $uuid)->get()->getResultArray();
+      $result = $this->db->table('medias_tmp')->where('uuid_post', $uuid)->get()->getResultArray();
 
     return $result;
   }
@@ -87,7 +87,7 @@ class ContentModel extends BaseModel
    * @param $uuid
    * @return int|string
    */
-  public function getCountNewContents($uuid = false)
+  public function getCountNewPosts($uuid = false)
   {
     $this->where('status', 0);
     if (!empty($uuid)) $this->where('uuid_account', $uuid);
