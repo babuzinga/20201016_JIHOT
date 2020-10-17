@@ -74,12 +74,14 @@ class Manage extends BaseController
               'desc' => $post['desc'],
               'comments' => $post['comments'],
               'likes' => $post['likes'],
+              'media_count' => count($post['medias']),
             ];
 
             $this->postModel->insert($data);
             $accounts[$id]['new']++;
 
             foreach ($post['medias'] as $item) {
+              $item['uuid'] = gen_uuid();
               $item['uuid_post'] = $data['uuid'];
               $this->postModel->insertMediaTemp($item);
             }
@@ -110,5 +112,38 @@ class Manage extends BaseController
     ];
 
     return $this->view('manage/select-posts', $data);
+  }
+
+  /**
+   * Удаление временного медиа-файла
+   * @param $uuid
+   */
+  public function RemoveTempMedia($uuid)
+  {
+    if (empty($uuid)) ajax(0);
+    $this->postModel->deleteMediaTemp($uuid);
+    ajax(1);
+  }
+
+  /**
+   * Удаление поста
+   * @param $uuid
+   */
+  public function RemovePost($uuid)
+  {
+    if (empty($uuid)) ajax(0);
+    $this->postModel->deletePost($uuid);
+    ajax(1);
+  }
+
+  /**
+   * Загрузить пост на сайт со всеми имеющимися медиа-данными
+   * @param $uuid
+   */
+  public function UploadPost($uuid)
+  {
+    if (empty($uuid)) ajax(0);
+    $this->postModel->uploadPost($uuid);
+    ajax(1);
   }
 }

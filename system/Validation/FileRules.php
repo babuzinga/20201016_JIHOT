@@ -169,8 +169,8 @@ class FileRules
 	//--------------------------------------------------------------------
 
 	/**
-	 * Uses the mime config file to determine if a file is considered an "image",
-	 * which for our purposes basically means that it's a raster image or svg.
+	 * Uses the mime config file to determine if a file is considered an "images",
+	 * which for our purposes basically means that it's a raster images or svg.
 	 *
 	 * @param string|null $blank
 	 * @param string      $params
@@ -202,10 +202,10 @@ class FileRules
 			}
 
 			// We know that our mimes list always has the first mime
-			// start with `image` even when then are multiple accepted types.
+			// start with `images` even when then are multiple accepted types.
 			$type = \Config\Mimes::guessTypeFromExtension($file->getExtension());
 
-			if (mb_strpos($type, 'image') !== 0)
+			if (mb_strpos($type, 'images') !== 0)
 			{
 				return false;
 			}
@@ -339,7 +339,7 @@ class FileRules
 			$allowedWidth  = $params[0] ?? 0;
 			$allowedHeight = $params[1] ?? 0;
 
-			// Get uploaded image size
+			// Get uploaded images size
 			$info       = getimagesize($file->getTempName());
 			$fileWidth  = $info[0];
 			$fileHeight = $info[1];

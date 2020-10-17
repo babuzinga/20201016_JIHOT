@@ -49,21 +49,21 @@ class Image extends File
 {
 
 	/**
-	 * The original image width in pixels.
+	 * The original images width in pixels.
 	 *
 	 * @var integer|float
 	 */
 	public $origWidth;
 
 	/**
-	 * The original image height in pixels.
+	 * The original images height in pixels.
 	 *
 	 * @var integer|float
 	 */
 	public $origHeight;
 
 	/**
-	 * The image type constant.
+	 * The images type constant.
 	 *
 	 * @see http://php.net/manual/en/image.constants.php
 	 *
@@ -80,7 +80,7 @@ class Image extends File
 	public $sizeStr;
 
 	/**
-	 * The image's mime type, i.e. image/jpeg
+	 * The images's mime type, i.e. images/jpeg
 	 *
 	 * @var string
 	 */
@@ -125,7 +125,7 @@ class Image extends File
 	//--------------------------------------------------------------------
 
 	/**
-	 * Get image properties
+	 * Get images properties
 	 *
 	 * A helper function that gets info about the file
 	 *
@@ -149,7 +149,7 @@ class Image extends File
 			IMAGETYPE_WEBP => 'webp',
 		];
 
-		$mime = 'image/' . ($types[$vals[2]] ?? 'jpg');
+		$mime = 'images/' . ($types[$vals[2]] ?? 'jpg');
 
 		if ($return === true)
 		{

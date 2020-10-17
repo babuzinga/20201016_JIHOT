@@ -58,7 +58,7 @@ class ImageMagickHandler extends BaseHandler
 {
 
 	/**
-	 * Stores image resource in memory.
+	 * Stores images resource in memory.
 	 *
 	 * @var string
 	 */
@@ -88,7 +88,7 @@ class ImageMagickHandler extends BaseHandler
 	//--------------------------------------------------------------------
 
 	/**
-	 * Handles the actual resizing of the image.
+	 * Handles the actual resizing of the images.
 	 *
 	 * @param boolean $maintainRatio
 	 *
@@ -118,7 +118,7 @@ class ImageMagickHandler extends BaseHandler
 	//--------------------------------------------------------------------
 
 	/**
-	 * Crops the image.
+	 * Crops the images.
 	 *
 	 * @return boolean|\CodeIgniter\Images\Handlers\ImageMagickHandler
 	 * @throws \Exception
@@ -144,8 +144,8 @@ class ImageMagickHandler extends BaseHandler
 	//--------------------------------------------------------------------
 
 	/**
-	 * Handles the rotation of an image resource.
-	 * Doesn't save the image, but replaces the current resource.
+	 * Handles the rotation of an images resource.
+	 * Doesn't save the images, but replaces the current resource.
 	 *
 	 * @param integer $angle
 	 *
@@ -195,7 +195,7 @@ class ImageMagickHandler extends BaseHandler
 	//--------------------------------------------------------------------
 
 	/**
-	 * Flips an image along it's vertical or horizontal axis.
+	 * Flips an images along it's vertical or horizontal axis.
 	 *
 	 * @param string $direction
 	 *
@@ -285,11 +285,11 @@ class ImageMagickHandler extends BaseHandler
 
 	/**
 	 * Saves any changes that have been made to file. If no new filename is
-	 * provided, the existing image is overwritten, otherwise a copy of the
+	 * provided, the existing images is overwritten, otherwise a copy of the
 	 * file is made at $target.
 	 *
 	 * Example:
-	 *    $image->resize(100, 200, true)
+	 *    $images->resize(100, 200, true)
 	 *          ->save();
 	 *
 	 * @param string|null $target
@@ -335,8 +335,8 @@ class ImageMagickHandler extends BaseHandler
 	/**
 	 * Get Image Resource
 	 *
-	 * This simply creates an image resource handle
-	 * based on the type of image being processed.
+	 * This simply creates an images resource handle
+	 * based on the type of images being processed.
 	 * Since ImageMagick is used on the cli, we need to
 	 * ensure we have a temporary file on the server
 	 * that we can use.
@@ -367,7 +367,7 @@ class ImageMagickHandler extends BaseHandler
 	//--------------------------------------------------------------------
 
 	/**
-	 * Make the image resource object if needed
+	 * Make the images resource object if needed
 	 *
 	 * @throws \Exception
 	 */
@@ -379,7 +379,7 @@ class ImageMagickHandler extends BaseHandler
 	}
 
 	/**
-	 * Check if given image format is supported
+	 * Check if given images format is supported
 	 *
 	 * @throws ImageException
 	 */
@@ -399,7 +399,7 @@ class ImageMagickHandler extends BaseHandler
 	//--------------------------------------------------------------------
 
 	/**
-	 * Handler-specific method for overlaying text on an image.
+	 * Handler-specific method for overlaying text on an images.
 	 *
 	 * @param string $text
 	 * @param array  $options
@@ -411,7 +411,7 @@ class ImageMagickHandler extends BaseHandler
 		$cmd = '';
 
 		// Reverse the vertical offset
-		// When the image is positioned at the bottom
+		// When the images is positioned at the bottom
 		// we don't want the vertical offset to push it
 		// further down. We want the reverse, so we'll
 		// invert the offset. Note: The horizontal
@@ -502,7 +502,7 @@ class ImageMagickHandler extends BaseHandler
 	//--------------------------------------------------------------------
 
 	/**
-	 * Return the width of an image.
+	 * Return the width of an images.
 	 *
 	 * @return integer
 	 */
@@ -512,7 +512,7 @@ class ImageMagickHandler extends BaseHandler
 	}
 
 	/**
-	 * Return the height of an image.
+	 * Return the height of an images.
 	 *
 	 * @return integer
 	 */
@@ -524,9 +524,9 @@ class ImageMagickHandler extends BaseHandler
 	//--------------------------------------------------------------------
 
 	/**
-	 * Reads the EXIF information from the image and modifies the orientation
+	 * Reads the EXIF information from the images and modifies the orientation
 	 * so that displays correctly in the browser. This is especially an issue
-	 * with images taken by smartphones who always store the image up-right,
+	 * with images taken by smartphones who always store the images up-right,
 	 * but set the orientation flag to display it correctly.
 	 *
 	 * @param boolean $silent If true, will ignore exceptions when PHP doesn't support EXIF.

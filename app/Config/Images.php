@@ -12,7 +12,7 @@ class Images extends BaseConfig
 	public $defaultHandler = 'gd';
 
 	/**
-	 * The path to the image library.
+	 * The path to the images library.
 	 * Required for ImageMagick, GraphicsMagick, or NetPBM.
 	 *
 	 * @var string

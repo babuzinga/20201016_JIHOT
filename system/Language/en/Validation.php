@@ -68,8 +68,8 @@ return [
 	// Files
    'uploaded'              => '{field} is not a valid uploaded file.',
    'max_size'              => '{field} is too large of a file.',
-   'is_image'              => '{field} is not a valid, uploaded image file.',
+   'is_image'              => '{field} is not a valid, uploaded images file.',
    'mime_in'               => '{field} does not have a valid mime type.',
    'ext_in'                => '{field} does not have a valid file extension.',
-   'max_dims'              => '{field} is either not an image, or it is too wide or tall.',
+   'max_dims'              => '{field} is either not an images, or it is too wide or tall.',
 ];

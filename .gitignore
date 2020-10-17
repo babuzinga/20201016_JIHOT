@@ -10,7 +10,7 @@
 # OS X Thumbnails
 ._*
 
-# Windows image file caches
+# Windows images file caches
 Thumbs.db
 ehthumbs.db
 Desktop.ini
@@ -125,3 +125,4 @@ nb-configuration.xml
 /phpunit*.xml
 /.phpunit.*.cache
 
+/public/medias/

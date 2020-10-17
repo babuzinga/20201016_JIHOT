@@ -68,8 +68,8 @@ class GDHandler extends BaseHandler
 	//--------------------------------------------------------------------
 
 	/**
-	 * Handles the rotation of an image resource.
-	 * Doesn't save the image, but replaces the current resource.
+	 * Handles the rotation of an images resource.
+	 * Doesn't save the images, but replaces the current resource.
 	 *
 	 * @param integer $angle
 	 *
@@ -77,7 +77,7 @@ class GDHandler extends BaseHandler
 	 */
 	protected function _rotate(int $angle): bool
 	{
-		// Create the image handle
+		// Create the images handle
 		$srcImg = $this->createImage();
 
 		// Set the background color
@@ -141,7 +141,7 @@ class GDHandler extends BaseHandler
 	//--------------------------------------------------------------------
 
 	/**
-	 * Flips an image along it's vertical or horizontal axis.
+	 * Flips an images along it's vertical or horizontal axis.
 	 *
 	 * @param string $direction
 	 *
@@ -182,7 +182,7 @@ class GDHandler extends BaseHandler
 	//--------------------------------------------------------------------
 
 	/**
-	 * Resizes the image.
+	 * Resizes the images.
 	 *
 	 * @return \CodeIgniter\Images\Handlers\GDHandler
 	 */
@@ -194,7 +194,7 @@ class GDHandler extends BaseHandler
 	//--------------------------------------------------------------------
 
 	/**
-	 * Crops the image.
+	 * Crops the images.
 	 *
 	 * @return \CodeIgniter\Images\Handlers\GDHandler
 	 */
@@ -230,7 +230,7 @@ class GDHandler extends BaseHandler
 			$this->image()->origWidth  = $this->width;
 		}
 
-		// Create the image handle
+		// Create the images handle
 		$src = $this->createImage();
 
 		if (function_exists('imagecreatetruecolor'))
@@ -264,11 +264,11 @@ class GDHandler extends BaseHandler
 
 	/**
 	 * Saves any changes that have been made to file. If no new filename is
-	 * provided, the existing image is overwritten, otherwise a copy of the
+	 * provided, the existing images is overwritten, otherwise a copy of the
 	 * file is made at $target.
 	 *
 	 * Example:
-	 *    $image->resize(100, 200, true)
+	 *    $images->resize(100, 200, true)
 	 *          ->save();
 	 *
 	 * @param string|null $target
@@ -360,8 +360,8 @@ class GDHandler extends BaseHandler
 	/**
 	 * Create Image Resource
 	 *
-	 * This simply creates an image resource handle
-	 * based on the type of image being processed
+	 * This simply creates an images resource handle
+	 * based on the type of images being processed
 	 *
 	 * @param string $path
 	 * @param string $imageType
@@ -391,13 +391,13 @@ class GDHandler extends BaseHandler
 	//--------------------------------------------------------------------
 
 	/**
-	 * Make the image resource object if needed
+	 * Make the images resource object if needed
 	 */
 	protected function ensureResource()
 	{
 		if ($this->resource === null)
 		{
-			// if valid image type, make corresponding image resource
+			// if valid images type, make corresponding images resource
 			$this->resource = $this->getImageResource(
 				$this->image()->getPathname(), $this->image()->imageType
 			);
@@ -407,7 +407,7 @@ class GDHandler extends BaseHandler
 	//--------------------------------------------------------------------
 
 	/**
-	 * Check if image type is supported and return image resource
+	 * Check if images type is supported and return images resource
 	 *
 	 * @param string  $path      Image path
 	 * @param integer $imageType Image type
@@ -455,7 +455,7 @@ class GDHandler extends BaseHandler
 	//--------------------------------------------------------------------
 
 	/**
-	 * Add text overlay to an image.
+	 * Add text overlay to an images.
 	 *
 	 * @param string $text
 	 * @param array  $options
@@ -465,7 +465,7 @@ class GDHandler extends BaseHandler
 	protected function _text(string $text, array $options = [])
 	{
 		// Reverse the vertical offset
-		// When the image is positioned at the bottom
+		// When the images is positioned at the bottom
 		// we don't want the vertical offset to push it
 		// further down. We want the reverse, so we'll
 		// invert the offset. Note: The horizontal
@@ -516,7 +516,7 @@ class GDHandler extends BaseHandler
 		// Set vertical alignment
 		if ($options['vAlign'] === 'middle')
 		{
-			// Don't apply padding when you're in the middle of the image.
+			// Don't apply padding when you're in the middle of the images.
 			$yAxis += ($this->image()->origHeight / 2) + ($fontheight / 2) - $options['padding'];
 		}
 		elseif ($options['vAlign'] === 'bottom')
@@ -552,7 +552,7 @@ class GDHandler extends BaseHandler
 	//--------------------------------------------------------------------
 
 	/**
-	 * Handler-specific method for overlaying text on an image.
+	 * Handler-specific method for overlaying text on an images.
 	 *
 	 * @param string  $text
 	 * @param array   $options
@@ -581,7 +581,7 @@ class GDHandler extends BaseHandler
 		$xAxis = $isShadow ? $options['xShadow'] : $options['xAxis'];
 		$yAxis = $isShadow ? $options['yShadow'] : $options['yAxis'];
 
-		// Add the shadow to the source image
+		// Add the shadow to the source images
 		if (! empty($options['fontPath']))
 		{
 			// We have to add fontheight because imagettftext locates the bottom left corner, not top-left corner.
@@ -598,7 +598,7 @@ class GDHandler extends BaseHandler
 	//--------------------------------------------------------------------
 
 	/**
-	 * Return image width.
+	 * Return images width.
 	 *
 	 * @return integer
 	 */
@@ -608,7 +608,7 @@ class GDHandler extends BaseHandler
 	}
 
 	/**
-	 * Return image height.
+	 * Return images height.
 	 *
 	 * @return integer
 	 */

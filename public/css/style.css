@@ -1,20 +1,25 @@
 * {
-  font: 12px Tahoma;
+  font: 14px Tahoma;
   line-height: 1px;
 }
 
 h1 {
   font-size: 20px;
   display: block;
-  margin: 10px 0;
+  margin: 10px 0 20px 0;
 }
 
 a, .link {
   color: #2e3af0;
   text-decoration: underline;
+  cursor: pointer;
 }
 a:hover, .link:hover {
   text-decoration: none;
+}
+
+section {
+  padding: 20px;
 }
 
 pre {
@@ -27,8 +32,8 @@ pre {
 
 footer {
   background-color: #ececec;
-  padding: 5px;
-  margin-top: 30px;
+  padding: 20px;
+  margin: 20px;
 }
 
 nav {
@@ -37,6 +42,7 @@ nav {
 }
 nav li {
   display: inline-block;
+  margin-right: 20px;
 }
 
 label {
@@ -44,16 +50,53 @@ label {
   margin: 5px 0;
 }
 
+#posts {
+  padding: 10px 0;
+}
 #posts > div {
-  display: inline-grid;
-  width: 300px;
-  border: 1px solid black;
+  display: inline-block;
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+#posts > div span.header {
+  display: block;
+  background-color: #f0f0f0;
   padding: 10px;
-  margin: 10px;
 }
 #posts > div span {
-  display: block;
+  display: inline-block;
+  padding: 5px 0;
 }
-#posts > div img {
-  max-width: 300px;
+#posts .media {
+  display: inline-block;
+  border: 1px solid #f0f0f0;
+  padding: 5px;
+  margin: 5px 0;
+}
+#posts .media img {
+  display: block;
+  max-height: 200px;
+}
+
+#lenta > div {
+  display: block;
+  max-width: 400px;
+}
+#lenta > div img,
+#lenta > div video {
+  display: block;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+#lenta span {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+button {
+  font-size: 14px;
+  padding: 10px 20px;
+  margin: 10px 0;
 }

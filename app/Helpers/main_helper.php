@@ -48,3 +48,24 @@ function gen_uuid()
     mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
   );
 }
+
+/**
+ * AJAX-вывод
+ * @param $str
+ */
+function ajax($str) {
+  echo (is_array($str)) ? json_encode($str) : $str;
+  exit;
+}
+
+/**
+ * Загрузка изображения по ссылке на стороннмй сайт
+ * @param $name
+ * @param $url
+ */
+function uploadMediaByUrl($name, $url)
+{
+  $path = $path = FCPATH . '/medias/' . $name;
+  $file = @file_get_contents($url);
+  if (!empty($file)) file_put_contents($path, $file);
+}

@@ -139,7 +139,7 @@ if (! function_exists('img'))
 	/**
 	 * Image
 	 *
-	 * Generates an image element
+	 * Generates an images element
 	 *
 	 * @param  mixed   $src
 	 * @param  boolean $indexPage
@@ -590,7 +590,7 @@ if (! function_exists('object'))
 	 * Object
 	 *
 	 * Generates an object element that represents the media
-	 * as either image or a resource plugin such as audio, video,
+	 * as either images or a resource plugin such as audio, video,
 	 * Java applets, ActiveX, PDF and Flash
 	 *
 	 * @param string  $data       A resource URL

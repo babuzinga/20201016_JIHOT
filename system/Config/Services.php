@@ -355,7 +355,7 @@ class Services extends BaseService
 
 	/**
 	 * Acts as a factory for ImageHandler classes and returns an instance
-	 * of the handler. Used like Services::image()->withFile($path)->rotate(90)->save();
+	 * of the handler. Used like Services::images()->withFile($path)->rotate(90)->save();
 	 *
 	 * @param string|null         $handler
 	 * @param \Config\Images|null $config
@@ -367,7 +367,7 @@ class Services extends BaseService
 	{
 		if ($getShared)
 		{
-			return static::getSharedInstance('image', $handler, $config);
+			return static::getSharedInstance('images', $handler, $config);
 		}
 
 		if (empty($config))

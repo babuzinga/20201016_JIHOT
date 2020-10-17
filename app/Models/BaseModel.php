@@ -5,6 +5,19 @@ use CodeIgniter\Model;
 class BaseModel extends Model
 {
   /**
+   * Возвращает объекта по uuid
+   * @param $uuid
+   * @return array|bool|object
+   */
+  public function getByUUID($uuid)
+  {
+    if (empty($uuid)) return false;
+    $object = $this->where('uuid', $uuid)->first();
+
+    return !empty($object) ? $object : false;
+  }
+
+  /**
    * @param array $data
    * @return array
    */

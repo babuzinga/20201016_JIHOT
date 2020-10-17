@@ -2,9 +2,15 @@
 
 class Home extends BaseController
 {
-	public function index()
+  /**
+   * @return string
+   */
+  public function index()
 	{
-	  $data = [];
+	  $data = [
+	    'posts' => $this->postModel->findAllActive(),
+    ];
+
 		return $this->view('home/index', $data);
 	}
 }
