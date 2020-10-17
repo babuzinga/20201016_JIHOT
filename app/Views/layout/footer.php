@@ -1,5 +1,5 @@
 <footer>
-  <?= date('Y-m-d'); ?>
+  <?= PROJECT_NAME, ' ', date('Y-m-d'); ?>
 </footer>
 </body>
 </html>

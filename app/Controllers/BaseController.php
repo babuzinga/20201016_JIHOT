@@ -14,7 +14,9 @@ namespace App\Controllers;
  * @package CodeIgniter
  */
 
-use App\Models\ProfileModel;
+use App\Models\BaseModel;
+use App\Models\AccountModel;
+use App\Models\ContentModel;
 use CodeIgniter\Controller;
 
 class BaseController extends Controller
@@ -29,7 +31,9 @@ class BaseController extends Controller
 	 */
 	protected $helpers = ['main'];
 
-	protected $profileModel;
+	protected $baseModel;
+	protected $accountModel;
+	protected $contentModel;
 
 	/**
 	 * Constructor.
@@ -45,7 +49,9 @@ class BaseController extends Controller
 		// E.g.:
 		// $this->session = \Config\Services::session();
 
-    $this->profileModel = new ProfileModel();
+    $this->baseModel = new BaseModel();
+    $this->accountModel = new AccountModel();
+    $this->contentModel = new ContentModel();
 	}
 
 	public function view(string $name, array $data = [])
