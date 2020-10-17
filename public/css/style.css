@@ -4,9 +4,14 @@
 }
 
 h1 {
-  font-size: 20px;
+  font-size: 80px;
   display: block;
-  margin: 10px 0 20px 0;
+  margin: 40px 0;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+h1 > span {
+  color: #ff8e99;
 }
 
 a, .link {
@@ -19,7 +24,21 @@ a:hover, .link:hover {
 }
 
 section {
-  padding: 20px;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  max-width: 600px;
+  min-width: 320px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+section,
+#hot > div,
+#hot > div img,
+#hot > div video {
+  width: 100%;
+  max-width: 600px;
 }
 
 pre {
@@ -33,7 +52,7 @@ pre {
 footer {
   background-color: #ececec;
   padding: 20px;
-  margin: 20px;
+  margin: 50px 0 0 0;
 }
 
 nav {
@@ -54,7 +73,6 @@ label {
   padding: 10px 0;
 }
 #posts > div {
-  display: inline-block;
   border-bottom: 1px solid black;
   padding-bottom: 20px;
   margin-bottom: 20px;
@@ -71,28 +89,33 @@ label {
 #posts .media {
   display: inline-block;
   border: 1px solid #f0f0f0;
-  padding: 5px;
+  text-align: center;
   margin: 5px 0;
+  box-sizing: border-box;
 }
 #posts .media img {
   display: block;
-  max-height: 200px;
+  max-width: 200px;
 }
 
-#lenta > div {
+#hot > div {
   display: block;
-  max-width: 400px;
 }
-#lenta > div img,
-#lenta > div video {
+#hot > div img,
+#hot > div video {
   display: block;
-  max-width: 400px;
-  margin-bottom: 20px;
 }
-#lenta span {
+#hot span {
   display: block;
-  margin-bottom: 5px;
   font-size: 14px;
+  color: #c6c6c6;
+}
+#hot .h_block {
+  margin-bottom: 5px;
+}
+#hot .f_block {
+  margin: 5px 0 50px 0;
+  text-align: right;
 }
 
 button {

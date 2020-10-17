@@ -2,7 +2,7 @@
 
 <section>
   <?= $this->include('manage/nav'); ?>
-  <h1>Посты на модерацию</h1>
+  <h1>Модерация</h1>
 
   <div id="posts">
   <?php if (!empty($posts)) : foreach ($posts as $index => $post) : ?>
@@ -29,7 +29,6 @@
         <?php endforeach; else : echo 'Медиа нет'; endif; ?>
       </div>
     </div>
-    <br/>
   <?php endforeach; else : echo 'Очередь пустая'; endif; ?>
   </div>
 </section>

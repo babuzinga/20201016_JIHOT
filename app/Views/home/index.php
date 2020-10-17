@@ -1,9 +1,9 @@
 <?= $this->include('layout/header'); ?>
 
 <section>
-  <h1>Лента</h1>
+  <h1><span>Hot</span>Fit</h1>
 
-  <div id="lenta">
+  <div id="hot">
     <?php
       if (!empty($posts)) :
         foreach ($posts as $index => $post) :
