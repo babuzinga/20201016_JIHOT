@@ -69,3 +69,23 @@ function uploadMediaByUrl($name, $url)
   $file = @file_get_contents($url);
   if (!empty($file)) file_put_contents($path, $file);
 }
+
+/**
+ * Сортировка двухмерного массива
+ * @param $records
+ * @param $field
+ * @param bool $reverse
+ * @return array
+ */
+function record_sort($records, $field, $reverse = false)
+{
+  $hash = array();
+  // .'__'.rand(1000,9999) - добавляется для создания уникальных ключей, т.к. значение $field
+  // может повторяться и значение собираемого массива будет перезаписываться
+  foreach($records as $record) { $hash[strval($record[$field]).'.'.rand(1000,9999)] = $record; }
+  // krsort — Сортирует массив по ключам в обратном порядке.
+  ($reverse) ? krsort($hash) : ksort($hash);
+  $records = array();
+  foreach($hash as $record) { $records[] = $record; }
+  return $records;
+}

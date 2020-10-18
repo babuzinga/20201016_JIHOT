@@ -8,8 +8,11 @@ class Manage extends BaseController
    */
   public function index()
   {
+    $account = $this->accountModel->findAccounts();
+    $account = record_sort($account, 'posts_ok', true);
+
     $data = [
-      'accounts' => $this->accountModel->findAllActive(),
+      'accounts' => $account,
     ];
 
     return $this->view('manage/index', $data);
@@ -47,12 +50,23 @@ class Manage extends BaseController
   }
 
   /**
-   * Получение постов по всем акканутам
+   * Получить посты переданного аккаунта
+   * @param $uuid
    * @return string
    */
-  public function GetPosts()
+  public function GetPostsAccount($uuid)
   {
-    $accounts = $this->accountModel->findAllActive();
+    return $this->GetPosts($uuid);
+  }
+
+  /**
+   * Получение постов по всем акканутам
+   * @param int $uuid_account
+   * @return string
+   */
+  public function GetPosts($uuid_account = 0)
+  {
+    $accounts = $this->accountModel->findAccounts($uuid_account);
 
     if (!empty($accounts)) {
       ini_set('max_execution_time', 900);
@@ -90,6 +104,7 @@ class Manage extends BaseController
           }
         }
 
+        $this->accountModel->updateDateLastParse($account['uuid']);
         sleep(1);
       }
     }

@@ -10,9 +10,6 @@ h1 {
   text-transform: uppercase;
   font-weight: bold;
 }
-h1 > span {
-  color: #ff8e99;
-}
 
 a, .link {
   color: #2e3af0;

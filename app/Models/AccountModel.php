@@ -10,7 +10,7 @@ class AccountModel extends BaseModel
   protected $returnType     = 'array';
   protected $useSoftDeletes = true;
 
-  protected $allowedFields = ['login', 'nid', 'status'];
+  protected $allowedFields = ['login', 'nid', 'status', 'last_parse'];
 
   protected $useTimestamps = false;
   protected $createdField  = 'created_at';
@@ -22,17 +22,22 @@ class AccountModel extends BaseModel
 
   /**
    * Возвращает все активные аккаунты
+   * @param int $uuid
    * @return array
    */
-  public function findAllActive()
+  public function findAccounts($uuid = 0)
   {
-    $result = $this
+    $this
       ->select('accounts.*')
       ->select('CONCAT(networks.link, accounts.login) link')
       ->join('networks', 'networks.id = accounts.nid', 'LEFT')
       ->where('status', 1)
-      ->findAll()
     ;
+
+    if (!empty($uuid))
+      $this->where('accounts.uuid', $uuid);
+
+    $result = $this->findAll();
 
     // Добавление информации по количеству постов стоящих на модерации
     if (!empty($result)) {
@@ -51,5 +56,14 @@ class AccountModel extends BaseModel
     }
 
     return !empty($result) ? $result : [];
+  }
+
+  /**
+   * Обновить дату последнего парсинга страницы
+   * @param $uuid
+   */
+  public function updateDateLastParse($uuid)
+  {
+    $this->set('last_parse', date('Y-m-d H:i:s'))->where('uuid', $uuid)->update();
   }
 }

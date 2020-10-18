@@ -2,10 +2,10 @@
 
   <section>
     <?= $this->include('manage/nav'); ?>
-    <h1>Завершение</h1>
+    <h1>Complete</h1>
 
     <?php if (!empty($accounts)) : foreach ($accounts as $index => $account) : ?>
-      <?= $account['login'], ' Новых: ', $account['new']; ?><br/>
+      <?= '@', $account['login'], ' +', $account['new']; ?><br/>
     <?php endforeach; endif; ?>
   </section>
 

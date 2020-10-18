@@ -2,7 +2,7 @@
 
 <section>
   <?= $this->include('manage/nav'); ?>
-  <h1>Модерация</h1>
+  <h1>Moderation</h1>
 
   <div id="posts">
   <?php if (!empty($posts)) : foreach ($posts as $index => $post) : ?>
@@ -10,9 +10,9 @@
       <span class="header">
         <?= $post['social'], ' : ', $post['login']; ?>
         -
-        <span class="link" onclick="up('<?= $post['uuid']; ?>')">[ Сохранить пост ]</span>
+        <span class="link" onclick="up('<?= $post['uuid']; ?>')">[ Save ]</span>
         -
-        <span class="link" onclick="rm('<?= $post['uuid']; ?>', 'p')">[ Удалить пост ]</span>
+        <span class="link" onclick="rm('<?= $post['uuid']; ?>', 'p')">[ Delete ]</span>
       </span>
 
       <div>
@@ -24,7 +24,7 @@
             <img src="<?= $media['preview']; ?>"/>
           </a>
           <br/>
-          <span class="link" onclick="rm('<?= $media['uuid']; ?>', 'm')">Удалить</span>
+          <span class="link" onclick="rm('<?= $media['uuid']; ?>', 'm')">Delete</span>
         </div>
         <?php endforeach; else : echo 'Медиа нет'; endif; ?>
       </div>

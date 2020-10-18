@@ -2,11 +2,11 @@
 
 <section>
   <?= $this->include('manage/nav'); ?>
-  <h1>Добавление аккаунта</h1>
+  <h1>Add</h1>
 
   <form action="/manage/save-account" method="post">
     <label>
-      Социальная сеть:
+      Social network:
       <select name="nid">
         <?php if (!empty($networks)) : foreach ($networks as $network) : ?>
           <option value="<?= $network['id']; ?>"><?= $network['name']; ?></option>
@@ -14,11 +14,11 @@
       </select>
     </label>
     <label>
-      Имя аккаунта:
+      Account:
       <input type="text" name="login" value="" required="required">
     </label>
 
-    <button type="submit">Добавить</button>
+    <button type="submit">Save</button>
   </form>
 </section>
 

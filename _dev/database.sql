@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `login` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nid` int(2) NOT NULL,
   `status` int(1) NOT NULL DEFAULT '1',
+  `last_parse` datetime NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
