@@ -11,7 +11,8 @@
   <?php endif; ?>
 
   <span class="f_block">
-    <?= date('Y-m-d H:i:s', $post['timestamp']), ' [ ', $post['pid'], ' - ', $post['media_count']; ?> ]
+    <?= date('Y-m-d H:i:s', $post['timestamp']), ' [ count : ', $post['media_count']; ?> ]
+    <a href="/posts/account/<?= $post['uuid_account']; ?>/">@<?= $post['login']; ?></a>
   </span>
 </div>
 <?php endif; ?>

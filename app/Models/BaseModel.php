@@ -90,17 +90,26 @@ class BaseModel extends Model
             // В массив данных заносятся основные значения
             $data = $post['node'];
 
-            $media = [
-              'pid' => $data['id'],
-              'type' => $data['__typename'],
-              'shortcode' => $data['shortcode'],
-              'timestamp' => $data['taken_at_timestamp'],
-              'desc' => $data['edge_media_to_caption']['edges'][0]['node']['text'],
-              'comments' => $data['edge_media_to_comment']['count'],
-              'likes' => $data['edge_liked_by']['count'],
+            try {
+              // Если набор медиа отстутсвует (бывает) пропускаем этот пост
+              $edges = $data['edge_media_to_caption']['edges'];
+              if (empty($edges)) continue;
 
-              'medias' => [],
-            ];
+              $media = [
+                'pid' => $data['id'],
+                'type' => $data['__typename'],
+                'shortcode' => $data['shortcode'],
+                'timestamp' => $data['taken_at_timestamp'],
+                'desc' => $edges[0]['node']['text'],
+                'comments' => $data['edge_media_to_comment']['count'],
+                'likes' => $data['edge_liked_by']['count'],
+
+                'medias' => [],
+              ];
+            } catch (\Exception $e) {
+              echo '<h1>ОШИБКА ПАРСЕРА!!!</h1>';
+              print_array($data, 1);
+            }
 
             // Сохранение медио в зависимости от типа
             switch ($media['type']) {

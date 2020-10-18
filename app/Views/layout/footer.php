@@ -1,7 +1,7 @@
 <footer>
-  <?= PROJECT_NAME, ' ', date('Y-m-d'); ?>
-  -
-  <a href="/manage">Управлялка</a>
+  <?= PROJECT_NAME, ' &copy;', date('Y'); ?>
 </footer>
+
+<script type="text/javascript" src="<?= getUrlWithHash('/js/script.min.js'); ?>"></script>
 </body>
 </html>

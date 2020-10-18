@@ -35,6 +35,8 @@ class BaseController extends Controller
 	protected $accountModel;
 	protected $postModel;
 
+	protected $limit = 5;
+
 	/**
 	 * Constructor.
 	 */

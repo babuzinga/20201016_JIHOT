@@ -164,40 +164,54 @@ class PostModel extends BaseModel
 
   /**
    * Возвращает все посты на модерации
+   * @param int $uuid_account
    * @return array
    */
-  public function findAllModeration()
+  public function findPostModeration($uuid_account = 0)
   {
-    $result = $this->findByStatus(0);
+    $result = $this->findPost(0, $uuid_account, 10);
     return !empty($result) ? $result : [];
   }
 
   /**
-   * Возвращает все посты на модерации
+   * $limit, $offset
+   * @param int $uuid_account
+   * @param int $limit
+   * @param int $offset
    * @return array
    */
-  public function findAllActive()
+  public function findPostActive($uuid_account = 0, $limit = 30, $offset = 0)
   {
-    $result = $this->findByStatus(1);
+    $result = $this->findPost(1, $uuid_account, $limit, $offset);
     return !empty($result) ? $result : [];
   }
 
   /**
    * Получение всех постов по значению статуса
    * @param int $status
+   * @param int $uuid_account
+   * @param int $limit
+   * @param int $offset
    * @return array
    */
-  function findByStatus($status = 1)
+  function findPost($status = 1, $uuid_account = 0, $limit = 30, $offset = 0)
   {
-    $result = $this
+    $this
       ->select('posts.*')
-      ->select('accounts.login')
+      ->select('accounts.login, accounts.uuid AS uuid_account')
       ->select('networks.name AS social, networks.link')
       ->join('accounts', 'accounts.uuid = posts.uuid_account', 'LEFT')
       ->join('networks', 'networks.id = accounts.nid', 'LEFT')
       ->where('posts.status', $status)
+    ;
+
+    if (!empty($uuid_account))
+      $this->where('posts.uuid_account', $uuid_account);
+
+    $result = $this
+      ->limit($limit, $offset)
       ->orderBy('timestamp DESC')
-      ->findAll()
+      ->find()
     ;
 
     if (!empty($result)) {
@@ -211,19 +225,23 @@ class PostModel extends BaseModel
   }
 
   /**
-   * Получение количества постов, стоящих на модерацию
-   * @param $uuid
+   * Возвращает количество постов по статусу
+   * @param int $status
+   * @param int $uuid_account
    * @return int|string
    */
-  public function getCountNewPosts($uuid = false)
+  public function getCountPosts($status = 1, $uuid_account = 0)
   {
-    $this->where('status', 0);
-    if (!empty($uuid))
-      $this->where('uuid_account', $uuid);
+    if (!empty($uuid_account))
+      $this->where('uuid_account', $uuid_account);
 
-    $result = $this->countAllResults();
+    $result = $this
+      ->where('status', $status)
+      ->get()
+      ->getResultArray()
+    ;
 
-    return !empty($result) ? $result : 0;
+    return !empty($result) ? count($result) : 0;
   }
 
   /**

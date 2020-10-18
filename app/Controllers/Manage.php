@@ -55,6 +55,8 @@ class Manage extends BaseController
     $accounts = $this->accountModel->findAllActive();
 
     if (!empty($accounts)) {
+      ini_set('max_execution_time', 900);
+
       foreach ($accounts as $id => $account) {
         $accounts[$id]['new'] = 0;
         $posts = $this->baseModel->getPostsAccount($account);
@@ -105,7 +107,7 @@ class Manage extends BaseController
    */
   public function SelectPosts()
   {
-    $posts = $this->postModel->findAllModeration();
+    $posts = $this->postModel->findPostModeration();
 
     $data = [
       'posts' => $posts,

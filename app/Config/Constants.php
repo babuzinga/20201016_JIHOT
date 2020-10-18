@@ -80,4 +80,4 @@ defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125); // highest auto
 
 define('PROTOCOL', 'https://');
 define('BASE_URL', PROTOCOL . $_SERVER['HTTP_HOST']);
-define('PROJECT_NAME', 'project20201016');
+define('PROJECT_NAME', 'HOTG');

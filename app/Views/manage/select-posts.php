@@ -48,19 +48,19 @@
     }
   }
 
-  let xhr = new XMLHttpRequest();
+  let xhr_manage = new XMLHttpRequest();
   function s(elem, link, wait) {
     if (!wait) elem.parentNode.removeChild(elem);
 
-    xhr.open('GET', link, true);
-    xhr.onreadystatechange = function(e) {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        if (xhr.response == 1 && wait) elem.parentNode.removeChild(elem);
-      } else if (xhr.readyState == 4 && xhr.status != 200) {
-        console.log(xhr.status + ': ' + xhr.statusText);
+    xhr_manage.open('GET', link, true);
+    xhr_manage.onreadystatechange = function(e) {
+      if (xhr_manage.readyState == 4 && xhr_manage.status == 200) {
+        if (xhr_manage.response == 1 && wait) elem.parentNode.removeChild(elem);
+      } else if (xhr_manage.readyState == 4 && xhr_manage.status != 200) {
+        console.log(xhr_manage.status + ': ' + xhr_manage.statusText);
       }
     };
-    xhr.send(null);
+    xhr_manage.send(null);
   }
 </script>
 

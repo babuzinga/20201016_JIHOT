@@ -55,18 +55,27 @@ footer {
   margin: 50px 0 0 0;
 }
 
-nav {
-  display: block;
-  margin-bottom: 20px;
-}
-nav li {
-  display: inline-block;
-  margin-right: 20px;
-}
-
 label {
   display: block;
   margin: 5px 0;
+}
+
+b {
+  font-weight: bold;
+}
+
+#menu {
+  margin-bottom: 20px;
+  display: block;
+}
+#menu ul {
+  display: block;
+  margin: 0 0 20px 0;
+  border-bottom: 1px solid black;
+}
+#menu li {
+  display: inline-block;
+  margin: 20px 20px 20px 0;
 }
 
 #posts {
@@ -105,7 +114,7 @@ label {
 #hot > div video {
   display: block;
 }
-#hot span {
+#hot > div span {
   display: block;
   font-size: 14px;
   color: #c6c6c6;
@@ -116,6 +125,31 @@ label {
 #hot .f_block {
   margin: 5px 0 50px 0;
   text-align: right;
+}
+
+#more {
+  background-color: #ff8e99;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  width: 300px;
+  margin: 0 auto;
+  cursor: pointer;
+  display: block;
+  border: none;
+}
+
+.accounts {
+  width: 100%;
+}
+.accounts th {
+  text-align: left;
+  border-bottom: 1px solid;
+  padding: 3px 0;
+}
+.accounts td {
+  padding: 3px 0;
 }
 
 button {

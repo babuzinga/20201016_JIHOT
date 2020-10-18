@@ -30,9 +30,11 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-
 $routes->addPlaceholder('uuid', '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}');
+
+$routes->get('/', 'Home::index');
+$routes->add('posts/account/(:uuid)', 'Home::PostsAccount/$1');
+
 $routes->add('manage', 'Manage::Index');
 $routes->add('manage/add-account', 'Manage::AddAccount');
 $routes->post('manage/save-account', 'Manage::SaveAccount');
@@ -41,6 +43,7 @@ $routes->add('manage/select-posts', 'Manage::SelectPosts');
 $routes->add('manage/remove-temp-media/(:uuid)', 'Manage::RemoveTempMedia/$1');
 $routes->add('manage/remove-post/(:uuid)', 'Manage::RemovePost/$1');
 $routes->add('manage/upload-post/(:uuid)', 'Manage::UploadPost/$1');
+
 
 /**
  * --------------------------------------------------------------------
