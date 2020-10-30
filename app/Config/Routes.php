@@ -38,6 +38,7 @@ $routes->add('posts/account/(:uuid)', 'Home::PostsAccount/$1');
 $routes->add('manage', 'Manage::Index');
 $routes->add('manage/add-account', 'Manage::AddAccount');
 $routes->post('manage/save-account', 'Manage::SaveAccount');
+$routes->add('manage/set-tags-account/(:uuid)/(:num)', 'Manage::SetTagsAccount/$1/$2');
 $routes->add('manage/get-posts', 'Manage::GetPosts');
 $routes->add('manage/get-posts-account/(:uuid)', 'Manage::GetPostsAccount/$1');
 $routes->add('manage/select-posts', 'Manage::SelectPosts');

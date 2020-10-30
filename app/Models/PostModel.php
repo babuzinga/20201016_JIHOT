@@ -198,7 +198,7 @@ class PostModel extends BaseModel
   {
     $this
       ->select('posts.*')
-      ->select('accounts.login, accounts.uuid AS uuid_account')
+      ->select('accounts.login, accounts.uuid AS uuid_account, accounts.tag_ids AS tag_ids')
       ->select('networks.name AS social, networks.link')
       ->join('accounts', 'accounts.uuid = posts.uuid_account', 'LEFT')
       ->join('networks', 'networks.id = accounts.nid', 'LEFT')
@@ -218,6 +218,7 @@ class PostModel extends BaseModel
       foreach ($result as $key => $item) {
         $result[$key]['medias_temp'] = $this->getMediaTempByPost($item['uuid']);
         $result[$key]['medias'] = $this->getMediaByPost($item['uuid']);
+        $result[$key]['tag_ids'] = $this->getTagsName($item['tag_ids']);
       }
     }
 

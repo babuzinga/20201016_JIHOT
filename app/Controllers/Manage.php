@@ -10,9 +10,11 @@ class Manage extends BaseController
   {
     $account = $this->accountModel->findAccounts();
     $account = record_sort($account, 'posts_ok', true);
+    $tags_account = $this->baseModel->getTagsAccount();
 
     $data = [
       'accounts' => $account,
+      'tags_account' => $tags_account,
     ];
 
     return $this->view('manage/index', $data);
@@ -162,5 +164,10 @@ class Manage extends BaseController
     if (empty($uuid)) ajax(0);
     $this->postModel->uploadPost($uuid);
     ajax(1);
+  }
+
+  public function SetTagsAccount($uuid, $tag_id)
+  {
+    $this->accountModel->setTagsAccount($uuid, $tag_id);
   }
 }

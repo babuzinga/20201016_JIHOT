@@ -43,8 +43,18 @@ class BaseModel extends Model
    */
   public function getNetworks()
   {
-    $networks = $this->db->query('SELECT * FROM networks')->getResult('array');
+    $networks = $this->db->query('SELECT id, name, link FROM networks')->getResult('array');
     return !empty($networks) ? $networks : [];
+  }
+
+  /**
+   * Возвращает все теги пользоватея
+   * @return array|array[]|object[]
+   */
+  public function getTagsAccount()
+  {
+    $tags = $this->db->query('SELECT id, title FROM tags_account')->getResult('array');
+    return !empty($tags) ? $tags : [];
   }
 
   /**
@@ -161,6 +171,22 @@ class BaseModel extends Model
           }
         }
         break;
+    }
+
+    return $result;
+  }
+
+  /**
+   * Возвращает данные по тегам
+   * @param $ids
+   * @return array
+   */
+  public function getTagsName($ids)
+  {
+    $result = [];
+    if (!empty($ids)) {
+      $data = $this->db->table('tags_account')->whereIn('id', explode(',', $ids))->get()->getResultArray();
+      $result = !empty($data) ? $data : $result;
     }
 
     return $result;

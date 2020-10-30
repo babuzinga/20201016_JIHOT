@@ -1,6 +1,7 @@
 * {
-  font: 14px Tahoma;
+  font-family: Tahoma;
   line-height: 1px;
+  font-size: 14px;
 }
 
 h1 {
@@ -153,4 +154,32 @@ button {
   font-size: 14px;
   padding: 10px 20px;
   margin: 10px 0;
+}
+
+.tags-select span {
+  display: inline-block;
+  padding: 2px 3px;
+  background-color: #e1e1e1;
+  cursor: pointer;
+  font-size: 14px;
+}
+.tags-select span.active {
+  background-color: #ff8e99;
+}
+
+.tags li {
+  display: inline-block;
+  margin: 0 0 5px 0;
+  cursor: pointer;
+}
+.tags li a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 5px 10px;
+  background-color: #dfdfdf;
+  color: white;
+  border-radius: 3px;
+}
+.tags li a:hover {
+  background-color: #ddc5c5;
 }
