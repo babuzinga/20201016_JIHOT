@@ -71,9 +71,10 @@ class BaseModel extends Model
       // Instagram
       case 1:
         $link = $profile['link'] . '?__a=1';
-        $responce = @file_get_contents($link);
-        if (_debug()) print_array($responce);
-        $result = (!empty($responce)) ? json_decode($responce, 1) : $result;
+        echo $link;
+        $response = @file_get_contents($link);
+        if (_debug()) print_array($response);
+        $result = (!empty($response)) ? json_decode($response, 1) : $result;
         break;
     }
 
