@@ -1,7 +1,7 @@
 <?= $this->include('layout/header'); ?>
 
 <section>
-  <h1>GHOT</h1>
+  <h1><?= PROJECT_NAME; ?></h1>
 
   <div id="hot">
     <?= view('home/items'); ?>
