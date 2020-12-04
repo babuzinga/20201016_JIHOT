@@ -71,9 +71,7 @@ class BaseModel extends Model
       // Instagram
       case 1:
         $link = $profile['link'] . '?__a=1';
-        echo $link;
         $response = file_get_contents($link);
-        if (_debug()) print_array($response);
         $result = (!empty($response)) ? json_decode($response, 1) : $result;
         break;
     }
@@ -95,8 +93,6 @@ class BaseModel extends Model
       // Instagram
       case 1:
         $data = $this->getDataAccount($profile);
-
-        if (_debug()) print_array($data);
 
         if ($data && $posts = $data['graphql']['user']['edge_owner_to_timeline_media']['edges']) {
           // Перебираются все данные по медиа
