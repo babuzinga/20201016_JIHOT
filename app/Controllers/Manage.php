@@ -76,7 +76,9 @@ class Manage extends BaseController
       foreach ($accounts as $id => $account) {
         $accounts[$id]['new'] = 0;
         $posts = $this->baseModel->getPostsAccount($account);
-        print_array($posts, 1);
+
+        if (_debug()) print_array($posts, 1);
+
         if (!empty($posts)) {
           foreach ($posts as $post) {
             // Если контент с таким идентификатором уже числится в БД, пропускаем его

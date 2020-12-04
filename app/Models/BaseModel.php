@@ -94,6 +94,8 @@ class BaseModel extends Model
       case 1:
         $data = $this->getDataAccount($profile);
 
+        if (_debug()) print_array($data);
+
         if ($data && $posts = $data['graphql']['user']['edge_owner_to_timeline_media']['edges']) {
           // Перебираются все данные по медиа
           foreach ($posts as $post) {

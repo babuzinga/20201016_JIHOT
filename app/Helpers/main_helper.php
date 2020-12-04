@@ -11,6 +11,15 @@ function print_array($array, $exit = false)
 }
 
 /**
+ * Режим отладки
+ * @return bool
+ */
+function _debug()
+{
+  return !empty($_GET['debug']);
+}
+
+/**
  * @param $link
  * @return string
  */
