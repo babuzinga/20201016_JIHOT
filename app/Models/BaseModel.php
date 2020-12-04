@@ -72,7 +72,7 @@ class BaseModel extends Model
       case 1:
         $link = $profile['link'] . '?__a=1';
         echo $link;
-        $response = @file_get_contents($link);
+        $response = file_get_contents($link);
         if (_debug()) print_array($response);
         $result = (!empty($response)) ? json_decode($response, 1) : $result;
         break;
