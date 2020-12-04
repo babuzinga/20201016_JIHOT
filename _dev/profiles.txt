@@ -1,0 +1,6 @@
+http://vsetip.top/virtualnyiy-nomer-telefona-dlya-registratsii-i-priema-sms/
+https://onlinesim.ru/#free
+https://mail.protonmail.com/inbox?welcome=true
+
+
+INSERT INTO `networks` (`id`, `name`, `link`) VALUES (1, 'Instagram', 'https://www.instagram.com/');
