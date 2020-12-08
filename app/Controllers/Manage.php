@@ -1,5 +1,7 @@
 <?php namespace App\Controllers;
 
+use App\Libraries\Insta;
+
 class Manage extends BaseController
 {
   /**
@@ -169,5 +171,14 @@ class Manage extends BaseController
   public function SetTagsAccount($uuid, $tag_id)
   {
     $this->accountModel->setTagsAccount($uuid, $tag_id);
+  }
+
+  public function InstaDebug()
+  {
+    $i = new Insta();
+    $i->login();
+    $data = $i->sendRequest('https://www.instagram.com/babuzinga/?__a=1');
+    print_array($data);
+    exit;
   }
 }

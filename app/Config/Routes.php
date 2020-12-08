@@ -46,6 +46,7 @@ $routes->add('manage/remove-temp-media/(:uuid)', 'Manage::RemoveTempMedia/$1');
 $routes->add('manage/remove-post/(:uuid)', 'Manage::RemovePost/$1');
 $routes->add('manage/upload-post/(:uuid)', 'Manage::UploadPost/$1');
 
+$routes->add('insta/debug', 'Manage::InstaDebug');
 
 /**
  * --------------------------------------------------------------------
